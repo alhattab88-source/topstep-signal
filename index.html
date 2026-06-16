@@ -16,8 +16,7 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial
 .header {
   background: linear-gradient(135deg,#0B0F1A,#0F1E2E);
   border-bottom: 1px solid var(--border);
-  padding: 18px 28px;
-  display: flex; align-items: center; gap: 14px;
+  padding: 18px 28px; display: flex; align-items: center; gap: 14px;
 }
 .logo {
   background: linear-gradient(135deg,var(--accent),#0099FF);
@@ -28,51 +27,94 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial
 .header-title { font-size: 20px; font-weight: 900; }
 .header-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
 
-.wrap { max-width: 700px; margin: 0 auto; padding: 28px 20px; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 28px 20px; }
 
+/* PRICE INPUT HERO */
+.price-hero {
+  background: linear-gradient(135deg, #111827, #0F1E2E);
+  border: 2px solid var(--accent);
+  border-radius: 20px; padding: 28px 24px;
+  margin-bottom: 20px; text-align: center;
+}
+.price-hero-label {
+  font-size: 12px; font-weight: 800; color: var(--accent);
+  letter-spacing: 1px; margin-bottom: 12px;
+}
+.price-hero-hint {
+  font-size: 12px; color: var(--muted); margin-bottom: 16px;
+}
+.price-input-wrap { position: relative; display: inline-block; width: 100%; max-width: 320px; }
+.price-input {
+  background: #0B0F1A; border: 2px solid var(--accent);
+  border-radius: 14px; padding: 16px 20px;
+  color: var(--accent); font-size: 32px; font-weight: 900;
+  width: 100%; outline: none; text-align: center;
+  font-family: inherit; letter-spacing: 1px;
+}
+.price-input::placeholder { color: #1E3A2E; font-size: 24px; }
+.price-input:focus { border-color: #00FF99; box-shadow: 0 0 20px #00C89620; }
+
+/* MARKET DATA DISPLAY */
+.market-strip {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 20px; margin-bottom: 20px;
+}
+.market-strip-title {
+  font-size: 11px; font-weight: 800; color: var(--muted);
+  letter-spacing: 0.5px; margin-bottom: 12px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.market-strip-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+}
+@media(max-width:500px){ .market-strip-grid { grid-template-columns: repeat(2,1fr); } }
+.ms-box { background: #151E2E; border-radius: 10px; padding: 10px 12px; text-align: center; }
+.ms-label { font-size: 10px; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+.ms-val { font-size: 14px; font-weight: 900; }
+.ms-status { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+.ms-status.ok { color: var(--accent); }
+.ms-status.loading { color: var(--yellow); }
+.ms-status.err { color: var(--red); }
+
+/* INPUT CARD */
 .input-card {
   background: var(--card); border: 1px solid var(--border);
-  border-radius: 18px; padding: 26px; margin-bottom: 20px;
+  border-radius: 18px; padding: 22px; margin-bottom: 20px;
 }
-.input-card h2 { font-size: 16px; font-weight: 800; margin-bottom: 20px; }
-
-.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-.field-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-@media(max-width:550px) { .field-grid,.field-grid-3 { grid-template-columns:1fr; } }
-
-.field label { font-size: 11px; color: var(--muted); font-weight: 700; display: block; margin-bottom: 6px; letter-spacing: 0.3px; }
-.field input, .field select {
+.input-card h2 { font-size: 14px; font-weight: 800; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.5px; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+@media(max-width:500px){ .field-grid { grid-template-columns:1fr; } }
+.field label { font-size: 11px; color: var(--muted); font-weight: 700; display: block; margin-bottom: 5px; }
+.field select, .field input {
   background: #151E2E; border: 1.5px solid var(--border);
-  border-radius: 10px; padding: 10px 14px; color: var(--text);
-  font-size: 14px; width: 100%; outline: none; font-family: inherit;
-  transition: border-color 0.15s;
+  border-radius: 10px; padding: 10px 13px; color: var(--text);
+  font-size: 13px; width: 100%; outline: none; font-family: inherit;
 }
-.field input:focus, .field select:focus { border-color: var(--accent); }
+.field select:focus, .field input:focus { border-color: var(--accent); }
 
-.divider { display: flex; align-items: center; gap: 10px; margin: 18px 0; }
-.divider span { font-size: 11px; color: var(--muted); font-weight: 700; white-space: nowrap; }
-.divider::before, .divider::after { content:''; flex:1; height:1px; background:var(--border); }
-
+/* ANALYZE BTN */
 .analyze-btn {
   width: 100%; padding: 16px;
   background: linear-gradient(135deg, var(--accent), #0099FF);
-  border: none; border-radius: 12px;
-  font-size: 16px; font-weight: 900; color: #000;
+  border: none; border-radius: 14px;
+  font-size: 17px; font-weight: 900; color: #000;
   cursor: pointer; font-family: inherit;
   transition: opacity 0.15s, transform 0.1s;
+  letter-spacing: 0.3px;
 }
-.analyze-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-.analyze-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+.analyze-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+.analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* LOADING */
 .loading {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 18px; padding: 50px 20px;
   text-align: center; margin-bottom: 20px;
 }
 .pulse { font-size: 44px; animation: pulse 1.2s ease-in-out infinite; display: inline-block; }
-@keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.15);opacity:0.7} }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
 .loading-text { font-size: 15px; color: var(--muted); margin-top: 16px; }
-.loading-sub { font-size: 12px; color: var(--border); margin-top: 6px; }
+.loading-steps { font-size: 12px; color: #2A3A4A; margin-top: 8px; line-height: 2; }
 
 .error-box {
   background: #FF4D6A15; border: 1.5px solid #FF4D6A50;
@@ -80,40 +122,54 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial
   color: var(--red); font-size: 13px; margin-bottom: 20px;
 }
 
-.result-card {
-  background: var(--card); border-radius: 18px;
-  overflow: hidden; margin-bottom: 20px;
-}
+/* RESULT */
+.result-card { background: var(--card); border-radius: 18px; overflow: hidden; margin-bottom: 20px; }
 .decision-header { padding: 28px 26px; text-align: center; }
-.decision-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
-.decision-main { font-size: 48px; font-weight: 900; letter-spacing: -2px; margin-bottom: 6px; }
-.decision-reason { font-size: 14px; line-height: 1.6; opacity: 0.9; }
+.decision-main { font-size: 46px; font-weight: 900; letter-spacing: -2px; margin-bottom: 8px; }
+.decision-reason { font-size: 14px; line-height: 1.65; opacity: 0.9; }
 
-.metrics-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; border-top: 1px solid var(--border); }
-@media(max-width:500px) { .metrics-row { grid-template-columns:1fr 1fr; } }
-.metric-item { padding: 16px 14px; text-align: center; border-left: 1px solid var(--border); }
+.metrics-row { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border); }
+@media(max-width:500px){ .metrics-row { grid-template-columns: repeat(2,1fr); } }
+.metric-item { padding: 14px; text-align: center; border-left: 1px solid var(--border); }
 .metric-item:last-child { border-left: none; }
 .metric-val { font-size: 20px; font-weight: 900; }
-.metric-lbl { font-size: 10px; color: var(--muted); margin-top: 4px; font-weight: 600; }
+.metric-lbl { font-size: 10px; color: var(--muted); margin-top: 3px; font-weight: 600; }
+
+.data-used {
+  margin: 0 20px 16px;
+  background: #00C89608; border: 1px solid #00C89625;
+  border-radius: 12px; padding: 14px 16px;
+}
+.data-used-title { font-size: 11px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+.data-used-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+@media(max-width:500px){ .data-used-grid { grid-template-columns: repeat(2,1fr); } }
+.du-item { text-align: center; }
+.du-label { font-size: 9px; color: var(--muted); font-weight: 700; }
+.du-val { font-size: 12px; font-weight: 800; color: var(--accent); }
 
 .trade-box { margin: 0 20px 20px; background: #151E2E; border-radius: 14px; overflow: hidden; }
-.trade-box-header { padding: 12px 18px; font-size: 13px; font-weight: 800; border-bottom: 1px solid var(--border); }
-.trade-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; border-bottom: 1px solid #1E2A3A30; }
+.trade-box-hdr { padding: 12px 18px; font-size: 13px; font-weight: 800; border-bottom: 1px solid var(--border); }
+.trade-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; border-bottom: 1px solid #1E2A3A20; }
 .trade-row:last-child { border-bottom: none; }
-.trade-row-label { font-size: 12px; color: var(--muted); font-weight: 600; }
-.trade-row-val { font-size: 14px; font-weight: 800; }
+.tr-label { font-size: 12px; color: var(--muted); font-weight: 600; }
+.tr-val { font-size: 14px; font-weight: 800; }
+.tr-sub { font-size: 11px; color: var(--muted); font-weight: 400; margin-right: 6px; }
 
-.analysis-section { padding: 0 20px 20px; }
-.analysis-title { font-size: 12px; font-weight: 800; color: var(--muted); margin-bottom: 12px; letter-spacing: 0.5px; }
-.point { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; font-size: 13px; line-height: 1.55; }
-.point-icon { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.logic-section { padding: 0 20px 16px; }
+.logic-title { font-size: 11px; font-weight: 800; color: var(--muted); margin-bottom: 10px; letter-spacing: 0.5px; }
+.logic-point { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; line-height: 1.55; }
+.logic-icon { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
 
-.psych-note { margin: 0 20px 20px; background: #A78BFA0F; border: 1px solid #A78BFA30; border-radius: 14px; padding: 16px 18px; }
-.psych-note-title { font-size: 12px; font-weight: 800; color: var(--purple); margin-bottom: 8px; }
-.psych-note-text { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.warn-box { margin: 0 20px 16px; background: #FF4D6A10; border: 1.5px solid #FF4D6A35; border-radius: 12px; padding: 14px 16px; }
+.warn-title { font-size: 12px; font-weight: 800; color: var(--red); margin-bottom:6px; }
 
-.disclaimer { background: #151E2E; border-radius: 10px; padding: 10px 16px; font-size: 11px; color: var(--muted); text-align: center; margin-bottom: 20px; }
-.reset-btn { background: var(--card); color: var(--accent); border: 1.5px solid var(--accent); border-radius: 12px; padding: 12px 30px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; display: block; margin: 0 auto 20px; }
+.psych { margin: 0 20px 20px; background: #A78BFA0A; border: 1px solid #A78BFA25; border-radius: 12px; padding: 14px 16px; }
+.psych-title { font-size: 11px; font-weight: 800; color: var(--purple); margin-bottom: 6px; }
+.psych-text { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+.disclaimer { background: #151E2E; border-radius: 10px; padding: 10px 16px; font-size: 11px; color: var(--muted); text-align: center; margin-bottom: 20px; line-height: 1.6; }
+.reset-btn { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 12px; padding: 12px 28px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; display: block; margin: 0 auto 20px; }
+
 .hidden { display: none !important; }
 </style>
 </head>
@@ -123,23 +179,52 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial
   <div class="logo">🤖</div>
   <div>
     <div class="header-title">Topstep AI Signal</div>
-    <div class="header-sub">أدخل بيانات السوق — Claude يقرر الصفقة كاملة</div>
+    <div class="header-sub">أدخل السعر الحالي — الباقي تلقائي</div>
   </div>
 </div>
 
 <div class="wrap">
-  <div class="input-card">
-    <h2>📊 بيانات السوق</h2>
 
+  <!-- STEP 1: PRICE INPUT -->
+  <div class="price-hero">
+    <div class="price-hero-label">📌 الخطوة الأولى — السعر الحالي</div>
+    <div class="price-hero-hint">افتح منصة Tradovate وأدخل السعر الحالي للأداة</div>
+    <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+      <select id="instrument" onchange="onInstrumentChange()" style="background:#151E2E;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:700;outline:none;font-family:inherit">
+        <option value="MNQ">MNQ — Micro Nasdaq</option>
+        <option value="MES">MES — Micro S&P 500</option>
+        <option value="MGC">MGC — Micro Gold</option>
+      </select>
+    </div>
+    <div class="price-input-wrap">
+      <input type="number" id="currentPrice" class="price-input" placeholder="00000" step="0.25" oninput="onPriceInput()">
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px" id="price-display">أدخل السعر ثم اضغط تحليل</div>
+  </div>
+
+  <!-- MARKET DATA STRIP -->
+  <div class="market-strip">
+    <div class="market-strip-title">
+      <span>📡 بيانات Twelve Data (تلقائية)</span>
+      <span style="font-size:10px;color:var(--muted);font-weight:500">PDH/PDL/VWAP/ATR</span>
+    </div>
+    <div class="market-strip-grid">
+      <div class="ms-box"><div class="ms-label">VWAP</div><div class="ms-val" id="md-vwap" style="color:var(--yellow)">—</div></div>
+      <div class="ms-box"><div class="ms-label">PDH</div><div class="ms-val" id="md-pdh" style="color:var(--accent)">—</div></div>
+      <div class="ms-box"><div class="ms-label">PDL</div><div class="ms-val" id="md-pdl" style="color:var(--red)">—</div></div>
+      <div class="ms-box"><div class="ms-label">ATR</div><div class="ms-val" id="md-atr" style="color:var(--yellow)">—</div></div>
+      <div class="ms-box"><div class="ms-label">دعم</div><div class="ms-val" id="md-sup" style="color:var(--accent)">—</div></div>
+      <div class="ms-box"><div class="ms-label">مقاومة</div><div class="ms-val" id="md-res" style="color:var(--red)">—</div></div>
+      <div class="ms-box"><div class="ms-label">الاتجاه 1H</div><div class="ms-val" id="md-trend" style="color:var(--muted)">—</div></div>
+      <div class="ms-box"><div class="ms-label">vs VWAP</div><div class="ms-val" id="md-vwap-pos" style="color:var(--muted)">—</div></div>
+    </div>
+    <div class="ms-status" id="md-status">أدخل السعر لتحميل البيانات</div>
+  </div>
+
+  <!-- STEP 2: SETTINGS -->
+  <div class="input-card">
+    <h2>⚙️ إعدادات إضافية</h2>
     <div class="field-grid">
-      <div class="field">
-        <label>الأداة</label>
-        <select id="instrument">
-          <option value="MNQ">MNQ — Micro Nasdaq</option>
-          <option value="MES">MES — Micro S&P 500</option>
-          <option value="MGC">MGC — Micro Gold</option>
-        </select>
-      </div>
       <div class="field">
         <label>الجلسة الحالية</label>
         <select id="session">
@@ -147,61 +232,6 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial
           <option>لندن (3:00–9:00)</option>
           <option>آسيا (18:00–2:00)</option>
           <option>ما قبل الافتتاح</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="field-grid-3">
-      <div class="field">
-        <label>السعر الحالي</label>
-        <input type="number" id="price" placeholder="21350">
-      </div>
-      <div class="field">
-        <label>VWAP</label>
-        <input type="number" id="vwap" placeholder="21300">
-      </div>
-      <div class="field">
-        <label>ATR (اختياري)</label>
-        <input type="number" id="atr" placeholder="25">
-      </div>
-    </div>
-
-    <div class="field-grid">
-      <div class="field">
-        <label>أعلى أمس (PDH)</label>
-        <input type="number" id="pdh" placeholder="21420">
-      </div>
-      <div class="field">
-        <label>أدنى أمس (PDL)</label>
-        <input type="number" id="pdl" placeholder="21200">
-      </div>
-      <div class="field">
-        <label>دعم رئيسي (اختياري)</label>
-        <input type="number" id="support" placeholder="21250">
-      </div>
-      <div class="field">
-        <label>مقاومة رئيسية (اختياري)</label>
-        <input type="number" id="resistance" placeholder="21400">
-      </div>
-    </div>
-
-    <div class="divider"><span>السياق</span></div>
-
-    <div class="field-grid">
-      <div class="field">
-        <label>الاتجاه على 1H</label>
-        <select id="trend1h">
-          <option value="صاعد">📈 صاعد</option>
-          <option value="هابط">📉 هابط</option>
-          <option value="range">↔️ Range</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>موقع السعر من VWAP</label>
-        <select id="vwapPos">
-          <option value="فوق">فوق VWAP</option>
-          <option value="تحت">تحت VWAP</option>
-          <option value="عند">عند VWAP</option>
         </select>
       </div>
       <div class="field">
@@ -225,48 +255,78 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial
           <option value="NFP">NFP اليوم</option>
         </select>
       </div>
+      <div class="field">
+        <label>ملاحظة (اختياري)</label>
+        <input type="text" id="extra" placeholder="Gap Up، breakout...">
+      </div>
     </div>
-
-    <div class="field" style="margin-bottom:20px">
-      <label>ملاحظة إضافية (اختياري)</label>
-      <input type="text" id="extra" placeholder="مثال: Gap Up الصباح، اختراق مستوى مهم...">
-    </div>
-
-    <button class="analyze-btn" id="analyze-btn" onclick="analyze()">
+    <button class="analyze-btn" id="analyze-btn" onclick="analyze()" disabled>
       🤖 حلّل وأعطني الصفقة
     </button>
   </div>
 
   <div id="loading" class="loading hidden">
     <div class="pulse">🧠</div>
-    <div class="loading-text">Claude يحلل السوق...</div>
-    <div class="loading-sub">يحسب الدخول والستوب والهدف حسب قواعد Topstep</div>
+    <div class="loading-text">جاري التحليل الكامل...</div>
+    <div class="loading-steps">
+      ✅ السعر الحالي: من منصتك<br>
+      ⬇️ جلب PDH/PDL/VWAP من Twelve Data<br>
+      🤖 Claude يحلل ويحدد الصفقة
+    </div>
   </div>
 
   <div id="error-box" class="error-box hidden"></div>
   <div id="result" class="hidden"></div>
 
   <div class="disclaimer">
-    تحليل استشاري فقط • القرار النهائي لك • لا ضمان ربح
+    تحليل استشاري فقط • القرار النهائي لك • لا ضمان ربح<br>
+    السعر من منصتك • PDH/PDL/VWAP محسوب من ETF مرجعي (QQQ/SPY/GLD)
   </div>
 </div>
 
 <script>
-const g = id => document.getElementById(id).value.trim();
-const show = id => document.getElementById(id).classList.remove('hidden');
-const hide = id => document.getElementById(id).classList.add('hidden');
+const g  = id => document.getElementById(id).value.trim();
+const el = id => document.getElementById(id);
+const show = id => el(id).classList.remove('hidden');
+const hide = id => el(id).classList.add('hidden');
 
-async function analyze() {
-  const price = g('price'), vwap = g('vwap'), pdh = g('pdh'), pdl = g('pdl');
-  if (!price || !vwap || !pdh || !pdl) {
-    showError('يرجى إدخال: السعر الحالي، VWAP، PDH، PDL على الأقل.');
-    return;
+let mdCache = null;
+let fetchTimer = null;
+
+function onInstrumentChange() {
+  mdCache = null;
+  resetMarketDisplay();
+  triggerFetch();
+}
+
+function onPriceInput() {
+  const p = parseFloat(g('currentPrice'));
+  if (p > 0) {
+    el('price-display').textContent = '✅ السعر: ' + p.toLocaleString();
+    el('price-display').style.color = 'var(--accent)';
+    el('analyze-btn').disabled = false;
+    // Update vwap position if data cached
+    if (mdCache) updateVwapPos(p, parseFloat(mdCache.vwap));
+    triggerFetch();
+  } else {
+    el('price-display').textContent = 'أدخل السعر ثم اضغط تحليل';
+    el('price-display').style.color = 'var(--muted)';
+    el('analyze-btn').disabled = true;
   }
+}
 
-  hide('error-box');
-  hide('result');
-  show('loading');
-  document.getElementById('analyze-btn').disabled = true;
+function triggerFetch() {
+  // Debounce: wait 800ms after last keystroke
+  clearTimeout(fetchTimer);
+  fetchTimer = setTimeout(prefetchData, 800);
+}
+
+async function prefetchData() {
+  const price = parseFloat(g('currentPrice'));
+  if (!price) return;
+
+  el('md-status').className = 'ms-status loading';
+  el('md-status').textContent = '⏳ جاري جلب البيانات...';
 
   try {
     const res = await fetch('/api/analyze', {
@@ -274,152 +334,210 @@ async function analyze() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         instrument: g('instrument'),
-        session:    g('session'),
-        price, vwap, pdh, pdl,
-        support:    g('support'),
-        resistance: g('resistance'),
-        atr:        g('atr'),
-        trend1h:    g('trend1h'),
-        vwapPos:    g('vwapPos'),
-        account:    g('account'),
-        news:       g('news'),
-        extra:      g('extra')
+        currentPrice: price,
+        session: g('session'),
+        account: 'طبيعي',
+        news: 'لا يوجد',
+        extra: '__PREFETCH__'
       })
     });
+    const data = await res.json();
+    if (data.marketData) {
+      mdCache = data.marketData;
+      updateMarketDisplay(data.marketData);
+      el('md-status').className = 'ms-status ok';
+      el('md-status').textContent = '✅ بيانات محدّثة — ' + new Date(data.marketData.fetchedAt).toLocaleTimeString('ar');
+    } else {
+      el('md-status').className = 'ms-status err';
+      el('md-status').textContent = '⚠️ ' + (data.error || 'خطأ في جلب البيانات');
+    }
+  } catch(e) {
+    el('md-status').className = 'ms-status err';
+    el('md-status').textContent = '⚠️ ' + e.message;
+  }
+}
 
+function updateMarketDisplay(md) {
+  el('md-vwap').textContent   = md.vwap;
+  el('md-pdh').textContent    = md.pdh;
+  el('md-pdl').textContent    = md.pdl;
+  el('md-atr').textContent    = md.atr;
+  el('md-sup').textContent    = md.support;
+  el('md-res').textContent    = md.resistance;
+  const tMap = { 'صاعد':'📈 صاعد','هابط':'📉 هابط','range':'↔️ Range' };
+  el('md-trend').textContent  = tMap[md.trend1h] || md.trend1h;
+  el('md-trend').style.color  = md.trend1h==='صاعد' ? 'var(--accent)' : md.trend1h==='هابط' ? 'var(--red)' : 'var(--yellow)';
+  updateVwapPos(parseFloat(md.price), parseFloat(md.vwap));
+}
+
+function updateVwapPos(price, vwap) {
+  if (!price || !vwap) return;
+  const pos = price > vwap ? '🟢 فوق' : price < vwap ? '🔴 تحت' : '🟡 عند';
+  const col = price > vwap ? 'var(--accent)' : price < vwap ? 'var(--red)' : 'var(--yellow)';
+  el('md-vwap-pos').textContent = pos;
+  el('md-vwap-pos').style.color = col;
+}
+
+function resetMarketDisplay() {
+  ['md-vwap','md-pdh','md-pdl','md-atr','md-sup','md-res','md-trend','md-vwap-pos']
+    .forEach(id => { el(id).textContent = '—'; el(id).style.color = 'var(--muted)'; });
+  el('md-status').className = 'ms-status';
+  el('md-status').textContent = 'أدخل السعر لتحميل البيانات';
+}
+
+async function analyze() {
+  const price = parseFloat(g('currentPrice'));
+  if (!price) { showError('أدخل السعر الحالي أولاً'); return; }
+
+  hide('error-box');
+  hide('result');
+  show('loading');
+  el('analyze-btn').disabled = true;
+
+  try {
+    const res = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        instrument:   g('instrument'),
+        currentPrice: price,
+        session:      g('session'),
+        account:      g('account'),
+        news:         g('news'),
+        extra:        g('extra')
+      })
+    });
     const r = await res.json();
     if (r.error) { showError(r.error); return; }
+    if (r.marketData) updateMarketDisplay(r.marketData);
     renderResult(r, g('instrument'));
-
   } catch(e) {
-    showError('خطأ في الاتصال: ' + e.message);
+    showError('خطأ: ' + e.message);
   } finally {
     hide('loading');
-    document.getElementById('analyze-btn').disabled = false;
+    el('analyze-btn').disabled = false;
   }
 }
 
 function renderResult(r, instrument) {
   const isTrade  = r.decision === 'Trade';
   const isLong   = r.direction === 'Long';
-  const dirColor = isLong ? 'var(--accent)' : (r.direction === 'Short' ? 'var(--red)' : 'var(--muted)');
-  const decColor = isTrade ? (isLong ? '#00C896' : '#FF4D6A') : '#FFB800';
-  const gradeColor = r.grade === 'A+' ? '#00C896' : r.grade === 'B' ? '#FFB800' : '#FF4D6A';
-  const confColor  = r.confidence >= 8 ? '#00C896' : r.confidence >= 6 ? '#FFB800' : '#FF4D6A';
+  const dColor   = isTrade ? (isLong ? '#00C896' : '#FF4D6A') : '#FFB800';
+  const gColor   = r.grade === 'A+' ? '#00C896' : r.grade === 'B' ? '#FFB800' : '#FF4D6A';
+  const cColor   = r.confidence >= 8 ? '#00C896' : r.confidence >= 6 ? '#FFB800' : '#FF4D6A';
+  const dirColor = isLong ? 'var(--accent)' : r.direction === 'Short' ? 'var(--red)' : 'var(--muted)';
 
-  let html = `<div class="result-card">`;
+  let h = `<div class="result-card">`;
 
-  // Decision header
-  html += `
-    <div class="decision-header" style="background:${decColor}12;border-bottom:1px solid ${decColor}30">
-      <div class="decision-label" style="color:${decColor}">القرار</div>
-      <div class="decision-main" style="color:${decColor}">
-        ${!isTrade ? '🚫 لا تداول' : (isLong ? '🟢 Long' : '🔴 Short')}
+  // Decision
+  h += `
+    <div class="decision-header" style="background:${dColor}12;border-bottom:1px solid ${dColor}25">
+      <div style="font-size:11px;font-weight:800;color:${dColor};letter-spacing:1px;margin-bottom:8px">القرار</div>
+      <div class="decision-main" style="color:${dColor}">
+        ${!isTrade ? '🚫 لا تداول' : isLong ? '🟢 Long' : '🔴 Short'}
       </div>
       <div class="decision-reason">${r.mainReason}</div>
     </div>`;
 
   // Metrics
-  html += `
+  h += `
     <div class="metrics-row">
-      <div class="metric-item">
-        <div class="metric-val" style="color:${gradeColor}">${r.grade}</div>
-        <div class="metric-lbl">تقييم</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val" style="color:${confColor}">${r.confidence}/10</div>
-        <div class="metric-lbl">الثقة</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val" style="color:var(--accent)">${r.rrRatio}</div>
-        <div class="metric-lbl">R:R</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val" style="color:${dirColor}">${r.direction === 'N/A' ? '—' : r.direction}</div>
-        <div class="metric-lbl">الاتجاه</div>
-      </div>
+      <div class="metric-item"><div class="metric-val" style="color:${gColor}">${r.grade}</div><div class="metric-lbl">تقييم</div></div>
+      <div class="metric-item"><div class="metric-val" style="color:${cColor}">${r.confidence}/10</div><div class="metric-lbl">الثقة</div></div>
+      <div class="metric-item"><div class="metric-val" style="color:var(--accent)">${r.rrRatio}</div><div class="metric-lbl">R:R</div></div>
+      <div class="metric-item"><div class="metric-val" style="color:${dirColor}">${r.direction==='N/A'?'—':r.direction}</div><div class="metric-lbl">الاتجاه</div></div>
     </div>`;
+
+  // Data used
+  if (r.marketData) {
+    const md = r.marketData;
+    h += `
+      <div class="data-used">
+        <div class="data-used-title">📊 البيانات المستخدمة في التحليل</div>
+        <div class="data-used-grid">
+          <div class="du-item"><div class="du-label">السعر (أنت)</div><div class="du-val">${md.price}</div></div>
+          <div class="du-item"><div class="du-label">VWAP</div><div class="du-val">${md.vwap}</div></div>
+          <div class="du-item"><div class="du-label">PDH</div><div class="du-val">${md.pdh}</div></div>
+          <div class="du-item"><div class="du-label">PDL</div><div class="du-val">${md.pdl}</div></div>
+          <div class="du-item"><div class="du-label">دعم</div><div class="du-val">${md.support}</div></div>
+          <div class="du-item"><div class="du-label">مقاومة</div><div class="du-val">${md.resistance}</div></div>
+          <div class="du-item"><div class="du-label">ATR</div><div class="du-val">${md.atr}</div></div>
+          <div class="du-item"><div class="du-label">الاتجاه 1H</div><div class="du-val">${md.trend1h}</div></div>
+        </div>
+      </div>`;
+  }
 
   // Trade details
   if (isTrade) {
-    const tpColor = isLong ? 'var(--accent)' : 'var(--red)';
-    const slColor = isLong ? 'var(--red)' : 'var(--accent)';
-    html += `
-      <div style="padding:20px 20px 0">
-        <div style="font-size:12px;font-weight:800;color:var(--muted);margin-bottom:12px;letter-spacing:0.5px">تفاصيل الصفقة — ${instrument}</div>
-      </div>
+    const tpC = isLong ? 'var(--accent)' : 'var(--red)';
+    const slC = isLong ? 'var(--red)' : 'var(--accent)';
+    h += `
+      <div style="padding:16px 20px 0"><div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:0.5px">تفاصيل الصفقة — ${instrument}</div></div>
       <div class="trade-box">
-        <div class="trade-box-header" style="color:${dirColor}">${isLong ? '🟢' : '🔴'} ${r.direction} — ${r.contracts} عقد Micro</div>
+        <div class="trade-box-hdr" style="color:${dirColor}">${isLong?'🟢':'🔴'} ${r.direction} — ${r.contracts} عقد Micro</div>
         <div class="trade-row">
-          <span class="trade-row-label">🎯 سعر الدخول</span>
-          <span class="trade-row-val" style="color:${dirColor}">${Number(r.entry).toLocaleString()}</span>
+          <span class="tr-label">🎯 سعر الدخول</span>
+          <span class="tr-val" style="color:${dirColor}">${Number(r.entry).toLocaleString()}</span>
         </div>
         <div class="trade-row">
-          <span class="trade-row-label">🛑 Stop Loss</span>
-          <span class="trade-row-val" style="color:${slColor}">${Number(r.stopLoss).toLocaleString()} <span style="font-size:11px;font-weight:400;color:var(--muted)">(${r.stopPoints} نقطة = $${r.riskDollar})</span></span>
+          <span class="tr-label">🛑 Stop Loss</span>
+          <span class="tr-val" style="color:${slC}">${Number(r.stopLoss).toLocaleString()} <span class="tr-sub">${r.stopPoints} نقطة = $${r.riskDollar}</span></span>
         </div>
         <div class="trade-row" style="background:#00C89606">
-          <span class="trade-row-label">✅ Take Profit 1</span>
-          <span class="trade-row-val" style="color:${tpColor}">${Number(r.tp1).toLocaleString()} <span style="font-size:11px;font-weight:400;color:var(--muted)">(${r.tp1Points} نقطة = +$${r.tp1Dollar})</span></span>
+          <span class="tr-label">✅ Take Profit 1</span>
+          <span class="tr-val" style="color:${tpC}">${Number(r.tp1).toLocaleString()} <span class="tr-sub">${r.tp1Points} نقطة = +$${r.tp1Dollar}</span></span>
         </div>
         <div class="trade-row" style="background:#00C89603">
-          <span class="trade-row-label">🏆 Take Profit 2</span>
-          <span class="trade-row-val" style="color:${tpColor}">${Number(r.tp2).toLocaleString()} <span style="font-size:11px;font-weight:400;color:var(--muted)">(${r.tp2Points} نقطة = +$${r.tp2Dollar})</span></span>
+          <span class="tr-label">🏆 Take Profit 2</span>
+          <span class="tr-val" style="color:${tpC}">${Number(r.tp2).toLocaleString()} <span class="tr-sub">${r.tp2Points} نقطة = +$${r.tp2Dollar}</span></span>
         </div>
         <div class="trade-row" style="border-top:1px solid var(--border)">
-          <span class="trade-row-label">💸 مخاطرة / عقد</span>
-          <span class="trade-row-val" style="color:var(--red)">$${r.riskDollar}</span>
+          <span class="tr-label">💸 مخاطرة / عقد</span>
+          <span class="tr-val" style="color:var(--red)">$${r.riskDollar}</span>
         </div>
         <div class="trade-row">
-          <span class="trade-row-label">💰 هدف TP2 / عقد</span>
-          <span class="trade-row-val" style="color:var(--accent)">+$${r.tp2Dollar}</span>
+          <span class="tr-label">💰 هدف TP2 / عقد</span>
+          <span class="tr-val" style="color:var(--accent)">+$${r.tp2Dollar}</span>
         </div>
-      </div>`;
-
-    html += `
-      <div class="analysis-section">
-        <div class="analysis-title">📐 منطق الصفقة</div>
-        <div class="point">
-          <div class="point-icon" style="background:#00C89622;color:var(--accent)">🎯</div>
+      </div>
+      <div class="logic-section">
+        <div class="logic-title">📐 منطق الصفقة</div>
+        <div class="logic-point">
+          <div class="logic-icon" style="background:#00C89622;color:var(--accent)">🎯</div>
           <div><strong style="color:var(--accent)">الدخول:</strong> ${r.entryLogic}</div>
         </div>
-        <div class="point">
-          <div class="point-icon" style="background:#FF4D6A22;color:var(--red)">🛑</div>
+        <div class="logic-point">
+          <div class="logic-icon" style="background:#FF4D6A22;color:var(--red)">🛑</div>
           <div><strong style="color:var(--red)">الستوب:</strong> ${r.stopLogic}</div>
         </div>
-        <div class="point">
-          <div class="point-icon" style="background:#00C89622;color:var(--accent)">🏆</div>
+        <div class="logic-point">
+          <div class="logic-icon" style="background:#00C89622;color:var(--accent)">🏆</div>
           <div><strong style="color:var(--accent)">الهدف:</strong> ${r.targetLogic}</div>
         </div>
       </div>`;
   }
 
   if (r.riskWarning) {
-    html += `
-      <div style="margin:0 20px 16px">
-        <div style="background:#FF4D6A10;border:1.5px solid #FF4D6A40;border-radius:12px;padding:14px 16px">
-          <div style="font-size:12px;font-weight:800;color:var(--red);margin-bottom:6px">🚨 تحذير</div>
-          <div style="font-size:13px;line-height:1.6">${r.riskWarning}</div>
-        </div>
-      </div>`;
+    h += `<div class="warn-box"><div class="warn-title">🚨 تحذير</div><div style="font-size:13px;line-height:1.6">${r.riskWarning}</div></div>`;
   }
 
-  html += `
-    <div class="psych-note">
-      <div class="psych-note-title">🧠 ملاحظة نفسية</div>
-      <div class="psych-note-text">${r.psychNote}</div>
+  h += `
+    <div class="psych">
+      <div class="psych-title">🧠 ملاحظة نفسية</div>
+      <div class="psych-text">${r.psychNote}</div>
     </div>
   </div>`;
 
-  document.getElementById('result').innerHTML = html
-    + `<button class="reset-btn" onclick="resetForm()">🔄 تحليل جديد</button>`;
+  el('result').innerHTML = h + `<button class="reset-btn" onclick="resetForm()">🔄 تحليل جديد</button>`;
   show('result');
-  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  el('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function showError(msg) {
-  document.getElementById('error-box').innerHTML = '⚠️ ' + msg;
+  el('error-box').innerHTML = '⚠️ ' + msg;
   show('error-box');
+  hide('loading');
+  el('analyze-btn').disabled = false;
 }
 function resetForm() {
   hide('result');
